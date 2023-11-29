@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #3498db, #e74c3c, #9b59b6);
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.loader {
+    border: 4px solid transparent;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding:50px;
+    margin: 40px;
+    animation: spin 2s linear infinite, opacityChange 2s alternate infinite, colorChange 6s infinite;
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes opacityChange {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes colorChange {
+    0%, 100% {
+        border-top-color: #3498db;
+    }
+    25% {
+        border-top-color: #e74c3c;
+    }
+    50% {
+        border-top-color: #9b59b6;
+    }
+    75% {
+        border-top-color: #2ecc71;
+    }
+}
+
+.controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.toggle-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-button:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+
+    .toggle-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Inspired By Talos Talos */
